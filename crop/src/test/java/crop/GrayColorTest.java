@@ -20,9 +20,11 @@ public class GrayColorTest {
 		.println("test de la methode getGrayscale() utilisee dans Corners initEdges() + generation img correspondante au scan");
 
 	PDDocument docIn = null;
-	File inputPdfFile = new File("C:\\projetCrop\\test.pdf"); // pdf en entree
-	File output = new File("C:\\projetCrop\\testOutput.png"); // image correspondante
-	
+	File inputPdfFile = new File("C:\\projetCrop\\test.pdf"); // pdf en
+								  // entree
+	File output = new File("C:\\projetCrop\\testOutput.png"); // image
+								  // correspondante
+
 	int width, height;
 	int resultatGetGrayscale;
 
@@ -45,20 +47,17 @@ public class GrayColorTest {
 	    // generation de l'image png correpsondante à la page 1
 	    System.out.println("Generation de l'image correspondante...");
 	    ImageIO.write(image, "png", output);
-	    
+
 	    // appel de la méthode getGrayscale() pour un point quelconque
 	    resultatGetGrayscale = new GrayColor(image.getRGB(1750, 800))
 		    .getGrayscale();
 	    System.out.println("resultatGetGrayscale 1 : "
 		    + resultatGetGrayscale);
 
-	    
 	    resultatGetGrayscale = new GrayColor(image.getRGB(0, 450))
 		    .getGrayscale();
 	    System.out.println("resultatGetGrayscale 2 : "
 		    + resultatGetGrayscale);
-	    
-	    
 
 	} catch (IOException e) {
 	    e.printStackTrace();
