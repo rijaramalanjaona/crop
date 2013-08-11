@@ -126,6 +126,5 @@ public class AngleDetector {
 		return Math.toDegrees(Math.atan(opposite / adjacent));
 	}
 	
-	// test add comment
 
 }
