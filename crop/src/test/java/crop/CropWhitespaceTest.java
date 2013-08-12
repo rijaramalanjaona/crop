@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
-public class CornersTest {
+public class CropWhitespaceTest {
 
 	public static void main(String[] args) {
 		System.out.println("------------------ CornersTest -----------------");
@@ -20,22 +20,9 @@ public class CornersTest {
 
 		BufferedImage image = getBufferedImageFromPdf(inputPdfFile);
 		if (image != null) {
-			Corners corners = new Corners(image);
-
-			System.out.println("Affichage corners");
-			System.out.println("Found top corner : " + corners.getTop());
-			System.out.println("Found right corner : " + corners.getRight());
-			System.out.println("Found bottom corner : " + corners.getBottom());
-			System.out.println("Found left corner : " + corners.getLeft());
-
-			/*
-			 * taille de l'image 2550 * 3504
-			 * 
-			 * Found top corner : 1583, 0 Found right corner : 2549, 868 Found
-			 * bottom corner : 43, 3503 Found left corner : 0, 10
-			 */
-
-			// TODO a revoir findCorner
+			CropWhitespace cropper = new CropWhitespace();
+			image = cropper.crop(image);
+			getImageFileFromBufferedImage(image, "C:\\projetCrop\\outputCropWhitespace.png");
 		}
 
 	}
@@ -49,7 +36,6 @@ public class CornersTest {
 			docIn = PDDocument.load(pdfFile);
 			List<PDPage> pages = docIn.getDocumentCatalog().getAllPages();
 			PDPage page = pages.get(0);
-			System.out.println("nb pages dans le pdf : " + pages.size());
 
 			// get the image
 			image = page.convertToImage(BufferedImage.TYPE_INT_RGB, 300);
