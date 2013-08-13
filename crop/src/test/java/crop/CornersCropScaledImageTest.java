@@ -36,7 +36,9 @@ public class CornersCropScaledImageTest {
 		File inputFile = new File("C:\\projetCrop\\outputPngFile.png");
 		Image image = new Image(inputFile);
 		image.trim();
-		image.saveAs("C:\\projetCrop\\copyTrim2.png");
+		image.rotate(92);
+		//image.rotateCounterClockwise();
+		image.saveAs("C:\\projetCrop\\copyTrimRotate.png");
 	}
 
 	// generer une image png correpsondante au pdf
