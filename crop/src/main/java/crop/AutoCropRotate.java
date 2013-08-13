@@ -35,6 +35,53 @@ public class AutoCropRotate {
 	 File("C:\\projetCrop\\outputScaledPngFile.png");
 	 outputPdfFile = new File("C:\\projetCrop\\outputPdfFile.pdf");
 
+	// AG - 300 dpi couleur.pdf
+//	inputPdfFile = new File(
+//		"C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
+//	outputPngFile = new File(
+//		"C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
+//	outputScaledPngFile = new File(
+//		"C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
+//	outputPdfFile = new File(
+//		"C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
+
+	// AG - copie n&b.pdf
+	// inputPdfFile = new
+	// File("C:\\projetCrop\\pdfTest\\AG - copie n&b.pdf");
+	// outputPngFile = new
+	// File("C:\\projetCrop\\outputPng\\AG - copie n&b-outputPngFile.png");
+	// outputScaledPngFile = new
+	// File("C:\\projetCrop\\outputScaledPng\\AG - copie n&b-outputScaledPngFile.png");
+	// outputPdfFile = new
+	// File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
+
+	// MB - copie n&b.pdf
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
+//	 outputPngFile = new
+//	 File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
+//	 outputScaledPngFile = new
+//	 File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
+//	 outputPdfFile = new
+//	 File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
+	
+//	inputPdfFile = new File(
+//		"C:\\projetCrop\\pdfTest\\cni1.pdf");
+//	outputPngFile = new File(
+//		"C:\\projetCrop\\outputPng\\cni1.png");
+//	outputScaledPngFile = new File(
+//		"C:\\projetCrop\\outputScaledPng\\cni1.png");
+//	outputPdfFile = new File(
+//		"C:\\projetCrop\\pdfResult\\cni1.pdf");
+	 
+//		inputPdfFile = new File(
+//		"C:\\projetCrop\\pdfTest\\cni2.pdf");
+//	outputPngFile = new File(
+//		"C:\\projetCrop\\outputPng\\cni2.png");
+//	outputScaledPngFile = new File(
+//		"C:\\projetCrop\\outputScaledPng\\cni2.png");
+//	outputPdfFile = new File(
+//		"C:\\projetCrop\\pdfResult\\cni2.pdf");
     }
 
     /** Go. */

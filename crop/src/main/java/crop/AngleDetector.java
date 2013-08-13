@@ -53,6 +53,7 @@ public class AngleDetector {
 
 	if (bestCorner.isTop()) {
 	    Coord top = corners.getTop();
+
 	    if (top.getX() <= getHalf(width)) {
 		System.out
 			.println("calcul angle : top.getX() <= getHalf(width) ");
@@ -213,38 +214,31 @@ public class AngleDetector {
 	// but : trouver y1 tq x, x1, y1 forment un triangle rectangle et arc
 	// tangente theta = y / abs(x1 - x)
 	int y1 = -1;
+	int grayTotal;
+	avgGrayTolerance = new GrayColor(image.getRGB(x1, 0)).getGrayscale() - 5; // par
+										  // defaut
+										  // avgGrayTolerance
+										  // =
+										  // 255
+										  // -
+										  // 5
+	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
 	for (int y = 0; y < height; y++) {
-	    int grayTotal = 0;
-	    for (int i = x1 - pixelMargin; i < x1 + pixelMargin; i++) {
-		try {
-		    grayTotal += new GrayColor(image.getRGB(i, y))
-			    .getGrayscale();
-		} catch (RuntimeException e) {
-		    System.out.println("x1=" + x1 + "  i=" + i);
-		    throw e;
+	    try {
+		grayTotal = new GrayColor(image.getRGB(x1, y)).getGrayscale();
+		System.out.println("y : " + y + " grayTotal : " + grayTotal);
+		if (grayTotal < avgGrayTolerance) {
+		    y1 = y;
+		    break;
 		}
+	    } catch (RuntimeException e) {
+		System.out.println("x1=" + x1);
+		throw e;
 	    }
-	    if (grayTotal > avgGrayTolerance * pixelMargin * 2) {
-		y1 = y;
-		break;
-	    }
+
 	}
 
-	// int second = -1;
-	// for (int y = 0; y < height; y++) {
-	// int grayTotal = 0;
-	// for (int i = x2 - pixelMargin; i < x2 + pixelMargin; i++) {
-	// grayTotal += new GrayColor(image.getRGB(i, y)).getGrayscale();
-	// }
-	// if (grayTotal > avgGrayTolerance * pixelMargin * 2) {
-	// second = y;
-	// break;
-	// }
-	// }
-
 	System.out.println("y1 : " + y1);
-	// double opposite = second - first;
-	// double adjacent = x2 - x1;
 
 	double opposite = y1;
 	double adjacent = Math.abs(x1 - x);
@@ -256,21 +250,23 @@ public class AngleDetector {
 	// but : trouver y1 tq x, x1, y1 forment un triangle rectangle et arc
 	// tangente theta = height - y / abs(x1 - x)
 	int y1 = -1;
+	int grayTotal;
+	avgGrayTolerance = new GrayColor(image.getRGB(x1, height))
+		.getGrayscale() - 5; // par defaut avgGrayTolerance = 255 - 5
+	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
 	for (int y = height; y > 0; y--) {
-	    int grayTotal = 0;
-	    for (int i = x1 - pixelMargin; i < x1 + pixelMargin; i++) {
-		try {
-		    grayTotal += new GrayColor(image.getRGB(i, y))
-			    .getGrayscale();
-		} catch (RuntimeException e) {
-		    System.out.println("x1=" + x1 + "  i=" + i);
-		    throw e;
+	    try {
+		grayTotal = new GrayColor(image.getRGB(x1, y)).getGrayscale();
+		System.out.println("y : " + y + " grayTotal : " + grayTotal);
+		if (grayTotal < avgGrayTolerance) {
+		    y1 = y;
+		    break;
 		}
+	    } catch (RuntimeException e) {
+		System.out.println("x1=" + x1);
+		throw e;
 	    }
-	    if (grayTotal > avgGrayTolerance * pixelMargin * 2) {
-		y1 = y;
-		break;
-	    }
+
 	}
 
 	System.out.println("y1 : " + y1);
@@ -284,20 +280,22 @@ public class AngleDetector {
 	// but : trouver x1 tq y, y1, x1 forment un triangle rectangle et arc
 	// tangente theta = width - x1 / abs(y1 - y)
 	int x1 = -1;
+	int grayTotal;
+	avgGrayTolerance = new GrayColor(image.getRGB(y1, width))
+		.getGrayscale() - 5; // par defaut avgGrayTolerance = 255 - 5
+	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
 	for (int x = width; x > 0; x--) {
-	    int grayTotal = 0;
-	    for (int i = y1 - pixelMargin; i < y1 + pixelMargin; i++) {
-		try {
-		    grayTotal += new GrayColor(image.getRGB(i, x))
-			    .getGrayscale();
-		} catch (RuntimeException e) {
-		    System.out.println("y1=" + y1 + "  i=" + i);
-		    throw e;
+	    try {
+		grayTotal = new GrayColor(image.getRGB(y1, x)).getGrayscale();
+		System.out.println("x : " + x + " grayTotal : " + grayTotal);
+		if (grayTotal < avgGrayTolerance) {
+		    x1 = x;
+		    break;
 		}
-	    }
-	    if (grayTotal > avgGrayTolerance * pixelMargin * 2) {
-		x1 = x;
-		break;
+
+	    } catch (RuntimeException e) {
+		System.out.println("y1=" + y1);
+		throw e;
 	    }
 	}
 
@@ -312,21 +310,28 @@ public class AngleDetector {
 	// but : trouver x1 tq y, y1, x1 forment un triangle rectangle et arc
 	// tangente theta = x1 / (y1 - y)
 	int x1 = -1;
+	int grayTotal;
+	avgGrayTolerance = new GrayColor(image.getRGB(y1, 0)).getGrayscale() - 5; // par
+										  // defaut
+										  // avgGrayTolerance
+										  // =
+										  // 255
+										  // -
+										  // 5
+	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
 	for (int x = 0; x < width; x++) {
-	    int grayTotal = 0;
-	    for (int i = y1 - pixelMargin; i < y1 + pixelMargin; i++) {
-		try {
-		    grayTotal += new GrayColor(image.getRGB(i, x))
-			    .getGrayscale();
-		} catch (RuntimeException e) {
-		    System.out.println("y1=" + y1 + "  i=" + i);
-		    throw e;
+	    try {
+		grayTotal = new GrayColor(image.getRGB(y1, x)).getGrayscale();
+		System.out.println("x : " + x + " grayTotal : " + grayTotal);
+		if (grayTotal < avgGrayTolerance) {
+		    x1 = x;
+		    break;
 		}
+	    } catch (RuntimeException e) {
+		System.out.println("y1=" + y1);
+		throw e;
 	    }
-	    if (grayTotal > avgGrayTolerance * pixelMargin * 2) {
-		x1 = x;
-		break;
-	    }
+
 	}
 
 	System.out.println("x1 : " + x1);
