@@ -29,21 +29,21 @@ public class AutoCropRotate {
 
     /** Prepare the test files. */
     private void init() throws Exception {
-	 inputPdfFile = new File("C:\\projetCrop\\test.pdf");
-	 outputPngFile = new File("C:\\projetCrop\\outputPngFile.png");
-	 outputScaledPngFile = new
-	 File("C:\\projetCrop\\outputScaledPngFile.png");
-	 outputPdfFile = new File("C:\\projetCrop\\outputPdfFile.pdf");
+	// inputPdfFile = new File("C:\\projetCrop\\test.pdf");
+	// outputPngFile = new File("C:\\projetCrop\\outputPngFile.png");
+	// outputScaledPngFile = new
+	// File("C:\\projetCrop\\outputScaledPngFile.png");
+	// outputPdfFile = new File("C:\\projetCrop\\outputPdfFile.pdf");
 
 	// AG - 300 dpi couleur.pdf
-//	inputPdfFile = new File(
-//		"C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
-//	outputPngFile = new File(
-//		"C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
-//	outputScaledPngFile = new File(
-//		"C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
-//	outputPdfFile = new File(
-//		"C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
+	inputPdfFile = new File(
+		"C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
+	outputPngFile = new File(
+		"C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
+	outputScaledPngFile = new File(
+		"C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
+	outputPdfFile = new File(
+		"C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
 
 	// AG - copie n&b.pdf
 	// inputPdfFile = new
@@ -56,32 +56,44 @@ public class AutoCropRotate {
 	// File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
 
 	// MB - copie n&b.pdf
-//	 inputPdfFile = new
-//	 File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
-//	 outputPngFile = new
-//	 File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
-//	 outputScaledPngFile = new
-//	 File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
-//	 outputPdfFile = new
-//	 File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
-	
-//	inputPdfFile = new File(
-//		"C:\\projetCrop\\pdfTest\\cni1.pdf");
-//	outputPngFile = new File(
-//		"C:\\projetCrop\\outputPng\\cni1.png");
-//	outputScaledPngFile = new File(
-//		"C:\\projetCrop\\outputScaledPng\\cni1.png");
-//	outputPdfFile = new File(
-//		"C:\\projetCrop\\pdfResult\\cni1.pdf");
-	 
-//		inputPdfFile = new File(
-//		"C:\\projetCrop\\pdfTest\\cni2.pdf");
-//	outputPngFile = new File(
-//		"C:\\projetCrop\\outputPng\\cni2.png");
-//	outputScaledPngFile = new File(
-//		"C:\\projetCrop\\outputScaledPng\\cni2.png");
-//	outputPdfFile = new File(
-//		"C:\\projetCrop\\pdfResult\\cni2.pdf");
+	// inputPdfFile = new
+	// File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
+	// outputPngFile = new
+	// File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
+	// outputScaledPngFile = new
+	// File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
+	// outputPdfFile = new
+	// File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
+
+	// BR - 300 dpi couleur
+	// inputPdfFile = new
+	// File("C:\\projetCrop\\pdfTest\\BR - 300 dpi couleur.pdf");
+	// outputPngFile = new
+	// File("C:\\projetCrop\\outputPng\\BR - 300 dpi couleur-outputPngFile.png");
+	// outputScaledPngFile = new
+	// File("C:\\projetCrop\\outputScaledPng\\BR - 300 dpi couleur-outputScaledPngFile.png");
+	// outputPdfFile = new
+	// File("C:\\projetCrop\\pdfResult\\BR - 300 dpi couleur-outputPdfFile.pdf");
+
+	// AH - 300 dpi couleur
+	// inputPdfFile = new
+	// File("C:\\projetCrop\\pdfTest\\AH - 300 dpi couleur.pdf");
+	// outputPngFile = new
+	// File("C:\\projetCrop\\outputPng\\AH - 300 dpi couleur-outputPngFile.png");
+	// outputScaledPngFile = new
+	// File("C:\\projetCrop\\outputScaledPng\\AH - 300 dpi couleur-outputScaledPngFile.png");
+	// outputPdfFile = new
+	// File("C:\\projetCrop\\pdfResult\\AH - 300 dpi couleur-outputPdfFile.pdf");
+
+	// JC - 300 dpi couleur
+	inputPdfFile = new File(
+		"C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
+	outputPngFile = new File(
+		"C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
+	outputScaledPngFile = new File(
+		"C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
+	outputPdfFile = new File(
+		"C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
     }
 
     /** Go. */
@@ -103,6 +115,7 @@ public class AutoCropRotate {
 	    // Automatically crop the image excluding any bad edges
 	    CropWhitespace cropper = new CropWhitespace(); // TODO a revoir
 	    // image = cropper.cropPure(image, MARGE, MARGE, MARGE, MARGE);
+
 	    image = cropper.crop(image); // TODO testé, qd le bord haut de
 	    // l'image est collé en haut de
 	    // page, y a pas de crop => Unable

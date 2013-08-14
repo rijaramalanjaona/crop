@@ -33,12 +33,10 @@ public class CornersCropScaledImageTest {
 		// }
 
 		// test javaxt
-		File inputFile = new File("C:\\projetCrop\\outputPngFile.png");
+		File inputFile = new File("C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
 		Image image = new Image(inputFile);
 		image.trim();
-		image.rotate(92);
-		//image.rotateCounterClockwise();
-		image.saveAs("C:\\projetCrop\\copyTrimRotate.png");
+		image.saveAs("C:\\projetCrop\\outputPng\\testTrim.png");
 	}
 
 	// generer une image png correpsondante au pdf

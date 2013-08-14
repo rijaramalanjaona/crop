@@ -21,6 +21,7 @@ public class AngleDetector {
 
     private BufferedImage image;
     private int width;
+
     private int height;
 
     public AngleDetector() {
@@ -35,6 +36,7 @@ public class AngleDetector {
     public double getRotation(BufferedImage image) {
 	if (image == null) {
 	    return 0;
+
 	}
 
 	this.image = image;
@@ -49,6 +51,7 @@ public class AngleDetector {
 	System.out.println("Found left corner : " + corners.getLeft());
 
 	BestCorner bestCorner = corners.getBestCorner();
+
 	System.out.println("Best corner is : " + bestCorner);
 
 	if (bestCorner.isTop()) {
@@ -81,12 +84,15 @@ public class AngleDetector {
 		// check for long side or short side
 		if (width < height) {
 		    // CNI add 90 degrees
+
 		    angle += 90;
+
 		}
 		return -angle;
 	    }
 
 	    // } else { // close to the right
+
 	    // System.out.println("calcul angle : close to the right ");
 	    // int third = top.getX() / 3;
 	    // int x1 = third;
@@ -112,12 +118,14 @@ public class AngleDetector {
 
 		System.out.println("distance : " + distance + " third : "
 			+ third + " y1 : " + y1);
+
 		angle = calcAngleFromRight(y1, right.getY());
 
 		// check for long side or short side
 		if (width < height) {
 		    // CNI add 90 degrees
 		    angle += 90;
+
 		}
 		return angle;
 	    } else {
@@ -128,6 +136,7 @@ public class AngleDetector {
 		angle = calcAngleFromRight(y1, right.getY());
 
 		// check for long side or short side
+
 		if (width < height) {
 		    // CNI add 90 degrees
 		    angle += 90;
@@ -147,6 +156,7 @@ public class AngleDetector {
 
 		System.out.println("distance : " + distance + " third : "
 			+ third + " x1 : " + x1);
+
 		angle = calcAngleFromBottom(x1, bottom.getX());
 
 		// check for long side or short side
@@ -154,6 +164,7 @@ public class AngleDetector {
 		    // CNI add 90 degrees
 		    angle += 90;
 		}
+
 		return -angle;
 	    } else {
 		System.out
@@ -184,6 +195,7 @@ public class AngleDetector {
 
 		System.out.println("distance : " + distance + " third : "
 			+ third + " y1 : " + y1);
+
 		angle = calcAngleFromLeft(y1, left.getY());
 
 		// check for long side or short side
@@ -191,6 +203,7 @@ public class AngleDetector {
 		    // CNI add 90 degrees
 		    angle += 90;
 		}
+
 		return -angle;
 	    } else {
 		System.out
@@ -216,20 +229,22 @@ public class AngleDetector {
 	int y1 = -1;
 	int grayTotal;
 	avgGrayTolerance = new GrayColor(image.getRGB(x1, 0)).getGrayscale() - 5; // par
-										  // defaut
-										  // avgGrayTolerance
-										  // =
-										  // 255
-										  // -
-										  // 5
+	// defaut
+	// avgGrayTolerance
+	// =
+	// 255
+	// -
+	// 5
+
 	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
-	for (int y = 0; y < height; y++) {
+	for (int y = 0; y < height - DEFAULT_PIXEL_MARGIN; y++) {
 	    try {
 		grayTotal = new GrayColor(image.getRGB(x1, y)).getGrayscale();
 		System.out.println("y : " + y + " grayTotal : " + grayTotal);
 		if (grayTotal < avgGrayTolerance) {
 		    y1 = y;
 		    break;
+
 		}
 	    } catch (RuntimeException e) {
 		System.out.println("x1=" + x1);
@@ -251,10 +266,16 @@ public class AngleDetector {
 	// tangente theta = height - y / abs(x1 - x)
 	int y1 = -1;
 	int grayTotal;
-	avgGrayTolerance = new GrayColor(image.getRGB(x1, height))
-		.getGrayscale() - 5; // par defaut avgGrayTolerance = 255 - 5
+	avgGrayTolerance = new GrayColor(image.getRGB(x1, height
+		- DEFAULT_PIXEL_MARGIN)).getGrayscale() - 5; // par
+	// defaut
+	// avgGrayTolerance
+	// =
+	// 255
+	// -
+	// 5
 	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
-	for (int y = height; y > 0; y--) {
+	for (int y = height - DEFAULT_PIXEL_MARGIN; y > 0; y--) {
 	    try {
 		grayTotal = new GrayColor(image.getRGB(x1, y)).getGrayscale();
 		System.out.println("y : " + y + " grayTotal : " + grayTotal);
@@ -281,16 +302,23 @@ public class AngleDetector {
 	// tangente theta = width - x1 / abs(y1 - y)
 	int x1 = -1;
 	int grayTotal;
-	avgGrayTolerance = new GrayColor(image.getRGB(y1, width))
-		.getGrayscale() - 5; // par defaut avgGrayTolerance = 255 - 5
+	avgGrayTolerance = new GrayColor(image.getRGB(width
+		- DEFAULT_PIXEL_MARGIN, y1)).getGrayscale() - 5; // par
+	// defaut
+	// avgGrayTolerance
+	// =
+	// 255
+	// -
+	// 5
 	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
-	for (int x = width; x > 0; x--) {
+	for (int x = width - DEFAULT_PIXEL_MARGIN; x > 0; x--) {
 	    try {
-		grayTotal = new GrayColor(image.getRGB(y1, x)).getGrayscale();
+		grayTotal = new GrayColor(image.getRGB(x, y1)).getGrayscale();
 		System.out.println("x : " + x + " grayTotal : " + grayTotal);
 		if (grayTotal < avgGrayTolerance) {
 		    x1 = x;
 		    break;
+
 		}
 
 	    } catch (RuntimeException e) {
@@ -311,17 +339,17 @@ public class AngleDetector {
 	// tangente theta = x1 / (y1 - y)
 	int x1 = -1;
 	int grayTotal;
-	avgGrayTolerance = new GrayColor(image.getRGB(y1, 0)).getGrayscale() - 5; // par
-										  // defaut
-										  // avgGrayTolerance
-										  // =
-										  // 255
-										  // -
-										  // 5
+	avgGrayTolerance = new GrayColor(image.getRGB(0, y1)).getGrayscale() - 5; // par
+	// defaut
+	// avgGrayTolerance
+	// =
+	// 255
+	// -
+	// 5
 	System.out.println("avgGrayTolerance : " + avgGrayTolerance);
-	for (int x = 0; x < width; x++) {
+	for (int x = 0; x < width - DEFAULT_PIXEL_MARGIN; x++) {
 	    try {
-		grayTotal = new GrayColor(image.getRGB(y1, x)).getGrayscale();
+		grayTotal = new GrayColor(image.getRGB(x, y1)).getGrayscale();
 		System.out.println("x : " + x + " grayTotal : " + grayTotal);
 		if (grayTotal < avgGrayTolerance) {
 		    x1 = x;
@@ -349,10 +377,12 @@ public class AngleDetector {
      * / 2), and if <code>num</code> is 9 this method will return 5 (ie. (num +
      * 1) / 2).
      * 
+     * 
      * @param num
      *            something non-negative to half
      * @return the number halfed (or half rounded up if <code>num</code> is odd)
      */
+
     private int getHalf(int num) {
 	assert num >= 0 : "We don't do negatives : " + num;
 

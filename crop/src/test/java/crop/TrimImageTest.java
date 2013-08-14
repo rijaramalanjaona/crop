@@ -10,26 +10,34 @@ import javax.imageio.ImageIO;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
-public class CropWhitespaceTest {
+public class TrimImageTest {
 
-	public static void main(String[] args) {
-		System.out.println("------------------ CornersTest -----------------");
+	public static void main(String[] args) throws IOException {
+		System.out.println("------------------ TrimImageTest -----------------");
 
-		// File inputPdfFile = new File("C:\\projetCrop\\test.pdf"); // pdf en
-		// entree
-		File inputPdfFile = new File("C:\\projetCrop\\pdfTest\\AG - copie n&b.pdf");
+		// File inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
+		// BufferedImage image = getBufferedImageFromPdf(inputPdfFile);
+		// image = CopyOfCropImage.trimWhite(image);
+		// getImageFileFromBufferedImage(image,
+		// "C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur-testTrimWhite.png");
 
+		// File inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\MB - copie n&b.pdf");
+		// BufferedImage image = getBufferedImageFromPdf(inputPdfFile);
+		// image = CopyOfCropImage.trimNoise(image);
+		// getImageFileFromBufferedImage(image,
+		// "C:\\projetCrop\\pdfTest\\MB - copie n&b-testTrimNoise.png");
+
+		File inputPdfFile = new File("C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
 		BufferedImage image = getBufferedImageFromPdf(inputPdfFile);
-		if (image != null) {
-			CropWhitespace cropper = new CropWhitespace();
-			image = cropper.crop(image);
-			getImageFileFromBufferedImage(image, "C:\\projetCrop\\AG - copie n&b-CropWhitespace.png");
-		}
+		image = CopyOfCropImage.trimWhite(image);
+		getImageFileFromBufferedImage(image, "C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur-testTrimWhite.png");
 
 	}
 
 	@SuppressWarnings("unchecked")
-	public static BufferedImage getBufferedImageFromPdf(File pdfFile) {
+	public static BufferedImage getBufferedImageFromPdf(File pdfFile) throws IOException {
 		PDDocument docIn = null;
 		BufferedImage image = null;
 		try {
@@ -45,6 +53,10 @@ public class CropWhitespaceTest {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			if (docIn != null) {
+				docIn.close();
+			}
 		}
 		return image;
 	}
