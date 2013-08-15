@@ -29,21 +29,21 @@ public class AutoCropRotate {
 
     /** Prepare the test files. */
     private void init() throws Exception {
-	// inputPdfFile = new File("C:\\projetCrop\\test.pdf");
-	// outputPngFile = new File("C:\\projetCrop\\outputPngFile.png");
-	// outputScaledPngFile = new
-	// File("C:\\projetCrop\\outputScaledPngFile.png");
-	// outputPdfFile = new File("C:\\projetCrop\\outputPdfFile.pdf");
+	 inputPdfFile = new File("C:\\projetCrop\\test.pdf");
+	 outputPngFile = new File("C:\\projetCrop\\outputPngFile.png");
+	 outputScaledPngFile = new
+	 File("C:\\projetCrop\\outputScaledPngFile.png");
+	 outputPdfFile = new File("C:\\projetCrop\\outputPdfFile.pdf");
 
 	// AG - 300 dpi couleur.pdf
-	inputPdfFile = new File(
-		"C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
-	outputPngFile = new File(
-		"C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
-	outputScaledPngFile = new File(
-		"C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
-	outputPdfFile = new File(
-		"C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
+//	inputPdfFile = new File(
+//		"C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
+//	outputPngFile = new File(
+//		"C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
+//	outputScaledPngFile = new File(
+//		"C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
+//	outputPdfFile = new File(
+//		"C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
 
 	// AG - copie n&b.pdf
 	// inputPdfFile = new
@@ -56,14 +56,14 @@ public class AutoCropRotate {
 	// File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
 
 	// MB - copie n&b.pdf
-	// inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
-	// outputPngFile = new
-	// File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
-	// outputScaledPngFile = new
-	// File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
-	// outputPdfFile = new
-	// File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
+//	 outputPngFile = new
+//	 File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
+//	 outputScaledPngFile = new
+//	 File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
+//	 outputPdfFile = new
+//	 File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
 
 	// BR - 300 dpi couleur
 	// inputPdfFile = new
@@ -86,14 +86,14 @@ public class AutoCropRotate {
 	// File("C:\\projetCrop\\pdfResult\\AH - 300 dpi couleur-outputPdfFile.pdf");
 
 	// JC - 300 dpi couleur
-	inputPdfFile = new File(
-		"C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
-	outputPngFile = new File(
-		"C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
-	outputScaledPngFile = new File(
-		"C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
-	outputPdfFile = new File(
-		"C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
+//	inputPdfFile = new File(
+//		"C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
+//	outputPngFile = new File(
+//		"C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
+//	outputScaledPngFile = new File(
+//		"C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
+//	outputPdfFile = new File(
+//		"C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
     }
 
     /** Go. */
@@ -111,6 +111,9 @@ public class AutoCropRotate {
 	    PDPage page = pages.get(0);
 	    BufferedImage image = page.convertToImage(
 		    BufferedImage.TYPE_INT_RGB, 300);
+	    
+	    ImageIO.write(image, "png", new File("C:\\projetCrop\\outputPng\\MB - copie n&b-2Initial.png"));
+	    System.out.println("img size : " + image.getWidth() +" * " + image.getHeight() );
 
 	    // Automatically crop the image excluding any bad edges
 	    CropWhitespace cropper = new CropWhitespace(); // TODO a revoir
