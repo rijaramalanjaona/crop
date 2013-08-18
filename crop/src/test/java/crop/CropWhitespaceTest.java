@@ -15,74 +15,137 @@ public class CropWhitespaceTest {
     public static void main(String[] args) throws IOException {
 	System.out.println("------------------ CornersTest -----------------");
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\test2.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\test2-Crop.png";
+	File inputPdfFile;
+	String output;
+	String avantCrop;
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\AG - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AG - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new File("C:\\projetCrop\\pdfTestPropre\\test2.pdf");
+//	 output = "C:\\projetCrop\\pdfTestPropre\\pngOutput\\test2-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\test2-AvantCrop.png";
+//
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\AG - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AG - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AG - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\AH - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AH - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestPropre\\AH - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AH - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AH - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\AP - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AP - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\AP - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AP - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\AP - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\BR - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\BR - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\BR - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\BR - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\BR - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\JC - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\JC - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\JC - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\JC - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\JC - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\MB - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\MB - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\MB - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\MB - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\MB - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\NM - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\NM - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\NM - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\NM - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\NM - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\VF - 300 dpi couleur.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\VF - 300 dpi couleur-Crop.png";
-	// OK
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\VF - 300 dpi couleur.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\VF - 300 dpi couleur-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\VF - 300 dpi couleur-AvantCrop.png";
 
-	// File inputPdfFile = new
-	// File("C:\\projetCrop\\pdfTestPropre\\MB - copie n&b-2.pdf");
-	// String output =
-	// "C:\\projetCrop\\pdfTestPropre\\pngOutput\\MB - copie n&b-2-Crop.png";
+//	 inputPdfFile = new
+//	 File("C:\\projetCrop\\pdfTestPropre\\MB - copie n&b-2.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\MB - copie n&b-2-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestPropre\\pngOutput\\MB - 300 dpi couleur-AvantCrop.png";
+////
+//	 inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestNotPropre\\MB - copie n&b.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\MB - copie n&b-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\MB - 300 dpi couleur-AvantCrop.png";
+//
+//	 inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestNotPropre\\AG - copie n&b.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\AG - copie n&b-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\AG - copie n&b-AvantCrop.png";
 
-	File inputPdfFile = new File(
-		"C:\\projetCrop\\pdfTestNotPropre\\MB - copie n&b.pdf");
-	String output = "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\MB - copie n&b-Crop.png";
+//	inputPdfFile = new File(
+//		"C:\\projetCrop\\pdfTestNotPropre\\AH - copie n&b.pdf");
+//	output = "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\AH - copie n&b-Crop.png";
+//	avantCrop = "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\AH - copie n&b-AvantCrop.png";
+
+//	 inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestNotPropre\\AP - copie n&b.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\AP - copie n&b-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\AP - copie n&b-AvantCrop.png";
+
+//	 inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestNotPropre\\BR - copie n&b.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\BR - copie n&b-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\BR - copie n&b-AvantCrop.png";
+
+//	 inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestNotPropre\\JC - copie n&b.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\JC - copie n&b-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\JC - copie n&b-AvantCrop.png";
+
+//	inputPdfFile = new File(
+//	 "C:\\projetCrop\\pdfTestNotPropre\\NM - copie n&b.pdf");
+//	 output =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\NM - copie n&b-Crop.png";
+//	 avantCrop =
+//	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\NM - copie n&b-AvantCrop.png";
+//
+	 inputPdfFile = new File(
+	 "C:\\projetCrop\\pdfTestNotPropre\\VF - copie n&b.pdf");
+	 output =
+	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\VF - copie n&b-Crop.png";
+	 avantCrop =
+	 "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\VF - copie n&b-AvantCrop.png";
 
 	BufferedImage image = getBufferedImageFromPdf(inputPdfFile);
 	if (image != null) {
 
 	    // img avant crop
-	    getImageFileFromBufferedImage(image,
-		    "C:\\projetCrop\\pdfTestNotPropre\\pngOutput\\MB - copie n&b-AvantCrop.png");
+	    getImageFileFromBufferedImage(image, avantCrop);
 
 	    CropWhitespace cropper = new CropWhitespace();
 	    image = cropper.crop(image);
