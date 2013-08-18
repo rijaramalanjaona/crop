@@ -29,11 +29,11 @@ public class AutoCropRotate {
 
 	/** Prepare the test files. */
 	private void init() throws Exception {
-		// inputPdfFile = new File("C:\\projetCrop\\test.pdf");
-		// outputPngFile = new File("C:\\projetCrop\\outputPngFile.png");
-		// outputScaledPngFile = new
-		// File("C:\\projetCrop\\outputScaledPngFile.png");
-		// outputPdfFile = new File("C:\\projetCrop\\outputPdfFile.pdf");
+//		 inputPdfFile = new File("C:\\projetCrop\\test2.pdf");
+//		 outputPngFile = new File("C:\\projetCrop\\outputPngFile2.png");
+//		 outputScaledPngFile = new
+//		 File("C:\\projetCrop\\outputScaledPngFile2.png");
+//		 outputPdfFile = new File("C:\\projetCrop\\outputPdfFile2.pdf");
 
 		// inputPdfFile = new File("C:\\projetCrop\\test2.pdf");
 		// outputPngFile = new File("C:\\projetCrop\\outputPngFile2.png");
@@ -41,61 +41,61 @@ public class AutoCropRotate {
 		// File("C:\\projetCrop\\outputScaledPngFile2.png");
 		// outputPdfFile = new File("C:\\projetCrop\\outputPdfFile2.pdf");
 
-		// AG - 300 dpi couleur.pdf
+////		 AG - 300 dpi couleur.pdf
 		inputPdfFile = new File("C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
 		outputPngFile = new File("C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
 		outputScaledPngFile = new File("C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
 		outputPdfFile = new File("C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
 
 		// AG - copie n&b.pdf
-		// inputPdfFile = new
-		// File("C:\\projetCrop\\pdfTest\\AG - copie n&b.pdf");
-		// outputPngFile = new
-		// File("C:\\projetCrop\\outputPng\\AG - copie n&b-outputPngFile.png");
-		// outputScaledPngFile = new
-		// File("C:\\projetCrop\\outputScaledPng\\AG - copie n&b-outputScaledPngFile.png");
-		// outputPdfFile = new
-		// File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
+//		 inputPdfFile = new
+//		 File("C:\\projetCrop\\pdfTest\\AG - copie n&b.pdf");
+//		 outputPngFile = new
+//		 File("C:\\projetCrop\\outputPng\\AG - copie n&b-outputPngFile.png");
+//		 outputScaledPngFile = new
+//		 File("C:\\projetCrop\\outputScaledPng\\AG - copie n&b-outputScaledPngFile.png");
+//		 outputPdfFile = new
+//		 File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
 
 		// MB - copie n&b.pdf
-		// inputPdfFile = new
-		// File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
-		// outputPngFile = new
-		// File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
-		// outputScaledPngFile = new
-		// File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
-		// outputPdfFile = new
-		// File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
+//		 inputPdfFile = new
+//		 File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
+//		 outputPngFile = new
+//		 File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
+//		 outputScaledPngFile = new
+//		 File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
+//		 outputPdfFile = new
+//		 File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
 
 		// BR - 300 dpi couleur
-		// inputPdfFile = new
-		// File("C:\\projetCrop\\pdfTest\\BR - 300 dpi couleur.pdf");
-		// outputPngFile = new
-		// File("C:\\projetCrop\\outputPng\\BR - 300 dpi couleur-outputPngFile.png");
-		// outputScaledPngFile = new
-		// File("C:\\projetCrop\\outputScaledPng\\BR - 300 dpi couleur-outputScaledPngFile.png");
-		// outputPdfFile = new
-		// File("C:\\projetCrop\\pdfResult\\BR - 300 dpi couleur-outputPdfFile.pdf");
+//		 inputPdfFile = new
+//		 File("C:\\projetCrop\\pdfTest\\BR - 300 dpi couleur.pdf");
+//		 outputPngFile = new
+//		 File("C:\\projetCrop\\outputPng\\BR - 300 dpi couleur-outputPngFile.png");
+//		 outputScaledPngFile = new
+//		 File("C:\\projetCrop\\outputScaledPng\\BR - 300 dpi couleur-outputScaledPngFile.png");
+//		 outputPdfFile = new
+//		 File("C:\\projetCrop\\pdfResult\\BR - 300 dpi couleur-outputPdfFile.pdf");
 
 		// AH - 300 dpi couleur
-		// inputPdfFile = new
-		// File("C:\\projetCrop\\pdfTest\\AH - 300 dpi couleur.pdf");
-		// outputPngFile = new
-		// File("C:\\projetCrop\\outputPng\\AH - 300 dpi couleur-outputPngFile.png");
-		// outputScaledPngFile = new
-		// File("C:\\projetCrop\\outputScaledPng\\AH - 300 dpi couleur-outputScaledPngFile.png");
-		// outputPdfFile = new
-		// File("C:\\projetCrop\\pdfResult\\AH - 300 dpi couleur-outputPdfFile.pdf");
+//		 inputPdfFile = new
+//		 File("C:\\projetCrop\\pdfTest\\AH - 300 dpi couleur.pdf");
+//		 outputPngFile = new
+//		 File("C:\\projetCrop\\outputPng\\AH - 300 dpi couleur-outputPngFile.png");
+//		 outputScaledPngFile = new
+//		 File("C:\\projetCrop\\outputScaledPng\\AH - 300 dpi couleur-outputScaledPngFile.png");
+//		 outputPdfFile = new
+//		 File("C:\\projetCrop\\pdfResult\\AH - 300 dpi couleur-outputPdfFile.pdf");
 
 		// JC - 300 dpi couleur
-		// inputPdfFile = new File(
-		// "C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
-		// outputPngFile = new File(
-		// "C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
-		// outputScaledPngFile = new File(
-		// "C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
-		// outputPdfFile = new File(
-		// "C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
+//		 inputPdfFile = new File(
+//		 "C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
+//		 outputPngFile = new File(
+//		 "C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
+//		 outputScaledPngFile = new File(
+//		 "C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
+//		 outputPdfFile = new File(
+//		 "C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
 	}
 
 	/** Go. */
@@ -124,8 +124,14 @@ public class AutoCropRotate {
 
 			// TODO a revoir
 			AngleDetector angler = new AngleDetector();
-			double angle = angler.getRotation(image);
-			System.out.println("angle revu = " + angle);
+			double angle0 = angler.getRotation(image);
+			
+			// TODO avec DSK
+			Deskew dsk = new Deskew();
+			double angle = dsk.doIt(image);
+			angle = (-57.295779513082320876798154814105 * angle);
+			
+			System.out.println("angle dsk = " + angle + " angle0 : " + angle0);
 
 			// TODO DELETE ME once AngleDetector works
 			// angle = 2;
