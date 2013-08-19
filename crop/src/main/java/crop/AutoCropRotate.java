@@ -17,7 +17,7 @@ import com.lowagie.text.Image;
 import com.lowagie.text.pdf.PdfWriter;
 
 public class AutoCropRotate {
-	private static final int MAX_WIDTH_PDF = 500; // pkw 500?
+	private static final int MAX_WIDTH_PDF = 500;
 	private static final double MAX_SCALED_DOWN_WIDTH = 500.0;
 
 	private File inputPdfFile;
@@ -29,73 +29,250 @@ public class AutoCropRotate {
 
 	/** Prepare the test files. */
 	private void init() throws Exception {
-//		 inputPdfFile = new File("C:\\projetCrop\\test2.pdf");
-//		 outputPngFile = new File("C:\\projetCrop\\outputPngFile2.png");
-//		 outputScaledPngFile = new
-//		 File("C:\\projetCrop\\outputScaledPngFile2.png");
-//		 outputPdfFile = new File("C:\\projetCrop\\outputPdfFile2.pdf");
-
-		// inputPdfFile = new File("C:\\projetCrop\\test2.pdf");
-		// outputPngFile = new File("C:\\projetCrop\\outputPngFile2.png");
+		// inputPdfFile = new File("C:\\projetCrop\\pdfTest\\test2.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\outputPngFile2.png");
 		// outputScaledPngFile = new
-		// File("C:\\projetCrop\\outputScaledPngFile2.png");
-		// outputPdfFile = new File("C:\\projetCrop\\outputPdfFile2.pdf");
+		// File("C:\\projetCrop\\outputScaledPng\\outputScaledPngFile2.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\outputPdfFile2.pdf");
 
-////		 AG - 300 dpi couleur.pdf
-		inputPdfFile = new File("C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
-		outputPngFile = new File("C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
-		outputScaledPngFile = new File("C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
-		outputPdfFile = new File("C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
+		// AG - 300 dpi couleur.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AG - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AG - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AG - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AG - 300 dpi couleur-outputPdfFile.pdf");
+
+		// AG - 300 dpi n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AG - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AG - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AG - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AG - 300 dpi n&b-outputPdfFile.pdf");
 
 		// AG - copie n&b.pdf
-//		 inputPdfFile = new
-//		 File("C:\\projetCrop\\pdfTest\\AG - copie n&b.pdf");
-//		 outputPngFile = new
-//		 File("C:\\projetCrop\\outputPng\\AG - copie n&b-outputPngFile.png");
-//		 outputScaledPngFile = new
-//		 File("C:\\projetCrop\\outputScaledPng\\AG - copie n&b-outputScaledPngFile.png");
-//		 outputPdfFile = new
-//		 File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AG - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AG - copie n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AG - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AG - copie n&b-outputPdfFile.pdf");
 
-		// MB - copie n&b.pdf
-//		 inputPdfFile = new
-//		 File("C:\\projetCrop\\pdfTest\\MB - copie n&b-2.pdf");
-//		 outputPngFile = new
-//		 File("C:\\projetCrop\\outputPng\\MB - copie n&b-2-outputPngFile.png");
-//		 outputScaledPngFile = new
-//		 File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-2-outputScaledPngFile.png");
-//		 outputPdfFile = new
-//		 File("C:\\projetCrop\\pdfResult\\MB - copie n&b-2-outputPdfFile.pdf");
+		// AH - 300 dpi couleur.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AH - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AH - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AH - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AH - 300 dpi couleur-outputPdfFile.pdf");
+
+		// AH - 300 dpi n&b.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AH - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AH - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AH - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AH - 300 dpi n&b-outputPdfFile.pdf");
+		//
+		// // AH - copie n&b.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AH - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AH - copie n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AH - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AH - copie n&b-outputPdfFile.pdf");
+
+		// // AP - 300 dpi couleur.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AP - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AP - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AP - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AP - 300 dpi couleur-outputPdfFile.pdf");
+
+		// AP - 300 dpi n&b.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AP - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AP - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AP - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AP - 300 dpi n&b-outputPdfFile.pdf");
+
+		// AP - copie n&b.pdf
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\AP - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\AP - copie n&bb-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\AP - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\AP - copie n&b-outputPdfFile.pdf");
 
 		// BR - 300 dpi couleur
-//		 inputPdfFile = new
-//		 File("C:\\projetCrop\\pdfTest\\BR - 300 dpi couleur.pdf");
-//		 outputPngFile = new
-//		 File("C:\\projetCrop\\outputPng\\BR - 300 dpi couleur-outputPngFile.png");
-//		 outputScaledPngFile = new
-//		 File("C:\\projetCrop\\outputScaledPng\\BR - 300 dpi couleur-outputScaledPngFile.png");
-//		 outputPdfFile = new
-//		 File("C:\\projetCrop\\pdfResult\\BR - 300 dpi couleur-outputPdfFile.pdf");
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\BR - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\BR - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\BR - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\BR - 300 dpi couleur-outputPdfFile.pdf");
 
-		// AH - 300 dpi couleur
-//		 inputPdfFile = new
-//		 File("C:\\projetCrop\\pdfTest\\AH - 300 dpi couleur.pdf");
-//		 outputPngFile = new
-//		 File("C:\\projetCrop\\outputPng\\AH - 300 dpi couleur-outputPngFile.png");
-//		 outputScaledPngFile = new
-//		 File("C:\\projetCrop\\outputScaledPng\\AH - 300 dpi couleur-outputScaledPngFile.png");
-//		 outputPdfFile = new
-//		 File("C:\\projetCrop\\pdfResult\\AH - 300 dpi couleur-outputPdfFile.pdf");
+		// BR - 300 dpi n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\BR - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\BR - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\BR - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\BR - 300 dpi n&b-outputPdfFile.pdf");
 
-		// JC - 300 dpi couleur
-//		 inputPdfFile = new File(
-//		 "C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
-//		 outputPngFile = new File(
-//		 "C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
-//		 outputScaledPngFile = new File(
-//		 "C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
-//		 outputPdfFile = new File(
-//		 "C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
+		// BR - copie n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\BR - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\BR - copie n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\BR - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\BR - copie n&b-outputPdfFile.pdf");
+
+		// // JC - 300 dpi couleur
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\JC - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\JC - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\JC - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\JC - 300 dpi couleur-outputPdfFile.pdf");
+
+		// // JC - 300 dpi n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\JC - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\JC - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\JC - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\JC - 300 dpi n&b-outputPdfFile.pdf");
+
+		// JC - copie n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\JC - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\JC - copie n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\JC - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\JC - copie n&b-outputPdfFile.pdf");
+
+		// MB - 300 dpi couleur
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\MB - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\MB - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\MB - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\MB - 300 dpi couleur-outputPdfFile.pdf");
+
+		// MB - 300 dpi n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\MB - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\MB - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\MB - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\MB - 300 dpi n&b-outputPdfFile.pdf");
+
+		// MB - copie n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\MB - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\MB - copie n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\MB - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\MB - copie n&b-outputPdfFile.pdf");
+
+		// NM - 300 dpi couleur
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\NM - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\NM - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\NM - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\NM - 300 dpi couleur-outputPdfFile.pdf");
+
+		// NM - 300 dpi n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\NM - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\NM - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\NM - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\NM - 300 dpi n&b-outputPdfFile.pdf");
+
+		// // NM - copie n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\NM - copie n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\NM - copie n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\NM - copie n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\NM - copie n&b-outputPdfFile.pdf");
+
+		// // VF - 300 dpi couleur
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\VF - 300 dpi couleur.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\VF - 300 dpi couleur-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\VF - 300 dpi couleur-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\VF - 300 dpi couleur-outputPdfFile.pdf");
+
+		// VF - 300 dpi n&b
+		// inputPdfFile = new
+		// File("C:\\projetCrop\\pdfTest\\VF - 300 dpi n&b.pdf");
+		// outputPngFile = new
+		// File("C:\\projetCrop\\outputPng\\VF - 300 dpi n&b-outputPngFile.png");
+		// outputScaledPngFile = new
+		// File("C:\\projetCrop\\outputScaledPng\\VF - 300 dpi n&b-outputScaledPngFile.png");
+		// outputPdfFile = new
+		// File("C:\\projetCrop\\pdfResult\\VF - 300 dpi n&b-outputPdfFile.pdf");
+		//
+		// VF - copie n&b
+		inputPdfFile = new File("C:\\projetCrop\\pdfTest\\VF - copie n&b.pdf");
+		outputPngFile = new File("C:\\projetCrop\\outputPng\\VF - copie n&b-outputPngFile.png");
+		outputScaledPngFile = new File("C:\\projetCrop\\outputScaledPng\\VF - copie n&b-outputScaledPngFile.png");
+		outputPdfFile = new File("C:\\projetCrop\\pdfResult\\VF - copie n&b-outputPdfFile.pdf");
+
 	}
 
 	/** Go. */
@@ -113,7 +290,6 @@ public class AutoCropRotate {
 			PDPage page = pages.get(0);
 			BufferedImage image = page.convertToImage(BufferedImage.TYPE_INT_RGB, 300);
 
-			ImageIO.write(image, "png", new File("C:\\projetCrop\\outputPng\\Initial.png"));
 			System.out.println("img size : " + image.getWidth() + " * " + image.getHeight());
 
 			// Automatically crop the image excluding any bad edges
@@ -125,13 +301,12 @@ public class AutoCropRotate {
 			// TODO a revoir
 			AngleDetector angler = new AngleDetector();
 			double angle0 = angler.getRotation(image);
-			
+
 			// TODO avec DSK
 			Deskew dsk = new Deskew();
 			double angle = dsk.doIt(image);
-			angle = (-57.295779513082320876798154814105 * angle);
-			
-			System.out.println("angle dsk = " + angle + " angle0 : " + angle0);
+
+			System.out.println("angle dsk = " + angle + " angle corner methode : " + angle0);
 
 			// TODO DELETE ME once AngleDetector works
 			// angle = 2;

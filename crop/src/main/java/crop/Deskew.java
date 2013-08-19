@@ -8,21 +8,32 @@ public class Deskew {
 
 	public double doIt(BufferedImage image) {
 		final double skewRadians;
+		double angleInDegree;
+		int width = image.getWidth();
+		int height = image.getHeight();
+
 		BufferedImage black = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_BYTE_BINARY);
 		final Graphics2D g = black.createGraphics();
 		g.drawImage(image, 0, 0, null);
 		g.dispose();
 
 		skewRadians = findSkew(black);
-		System.out.println("en degre : " + (-57.295779513082320876798154814105 * skewRadians));
-		return skewRadians;
+		angleInDegree = (-57.295779513082320876798154814105 * skewRadians);
+
+		// check for long side or short side
+		if (width < height) {
+			// CNI add 90 degrees
+			angleInDegree += 90;
+		}
+		System.out.println("angleInDegree : " + angleInDegree);
+		return angleInDegree;
 	}
 
 	static int getByteWidth(final int width) {
 		return (width + 7) / 8;
 	}
 
-	static int next_pow2(final int n) {
+	static int nextPow2(final int n) {
 		int retval = 1;
 		while (retval < n) {
 			retval <<= 1;
@@ -65,7 +76,7 @@ public class Deskew {
 			final int lastElement = buffer.getElem(elementIndex - 1) & padmask;
 			buffer.setElem(elementIndex - 1, lastElement); // Zero trailing bits
 		}
-		final int w2 = next_pow2(byteWidth);
+		final int w2 = nextPow2(byteWidth);
 		final int ssize = 2 * w2 - 1; // Size of sharpness table
 		final int sharpness[] = new int[ssize];
 		radon(img.getWidth(), img.getHeight(), buffer, 1, sharpness);
@@ -93,7 +104,7 @@ public class Deskew {
 
 		int[] p1_, p2_; // Stored columnwise
 
-		final int w2 = next_pow2(getByteWidth(width));
+		final int w2 = nextPow2(getByteWidth(width));
 		final int w = getByteWidth(width);
 		final int h = height;
 
