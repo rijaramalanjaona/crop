@@ -30,9 +30,6 @@ public class CropWhitespace {
 	/** The value of gray considered as whitespace or noise. */
 	private final int avgGrayTolerance;
 
-	/** The percentage of the document in which to search for bad edges. */
-	private final double marginPercent;
-
 	/** The image to crop. */
 	private BufferedImage image;
 
@@ -186,7 +183,6 @@ public class CropWhitespace {
 		}
 
 		this.avgGrayTolerance = avgGrayTolerance;
-		this.marginPercent = marginPercent;
 	}
 
 	/**
@@ -266,11 +262,6 @@ public class CropWhitespace {
 	 * Prepare to exclude any bad (dark) edges.
 	 */
 	public void trackBadEdges() {
-		int xMargin = (int) Math.round(marginPercent * Math.max(width, height));
-		int yMargin = (int) Math.round(marginPercent * Math.max(width, height));
-
-		System.out.println(">>>> trackBadEdges xMargin : " + xMargin + " yMargin : " + yMargin);
-
 		marginLeft = 0;
 		marginRight = width;
 		marginTop = 0;
@@ -283,17 +274,11 @@ public class CropWhitespace {
 	 * part of the image we want to keep).
 	 */
 	public void findRectangleCoordinates() {
-		int nbDetectionNoiseWidth = width * POURCENTAGE_DETECTION_NOISE / 100;
-		int nbDetectionNoiseHeight = height * POURCENTAGE_DETECTION_NOISE / 100;
 
 		xTop = 0;
 		xBottom = height;
 		yLeft = 0;
 		yRight = width;
-
-		System.out.println("nbDetectionNoiseWidth : " + nbDetectionNoiseWidth + " nbDetectionNoiseHeight : "
-				+ nbDetectionNoiseHeight + " marginTop : " + marginTop + " marginBottom : " + marginBottom
-				+ " marginLeft : " + marginLeft + " marginRight : " + marginRight);
 
 		checkXTop();
 		if (xTop == height + 1) {
@@ -315,9 +300,6 @@ public class CropWhitespace {
 			yRight = width;
 		}
 
-		System.out.println("Fin findRectangleCoordinates : xTop : " + xTop + " xBottom : " + xBottom + " yLeft : "
-				+ yLeft + " yRight : " + yRight + " marginTop : " + marginTop + " marginBottom : " + marginBottom
-				+ " marginLeft : " + marginLeft + " marginRight : " + marginRight);
 	}
 
 	public void checkXTop() {
@@ -350,11 +332,8 @@ public class CropWhitespace {
 		if (!limiteXTopAtteinte && marginTop <= height) {
 			pourcentageBlancFromXTop = (double) nbRowBlancFromXTop * 100 / nbDetectionNoiseHeight;
 
-			System.out.println("nbRowBlancFromXTop : " + nbRowBlancFromXTop + " -> " + pourcentageBlancFromXTop + "%");
-
 			if (pourcentageBlancFromXTop > POURCENTAGE_AUTOUR_BLANC) {
 				marginTop = marginTop + nbDetectionNoiseHeight;
-				System.out.println("nouvelle margin top  : " + marginTop + " xTop : " + xTop);
 				checkXTop();
 			}
 		}
@@ -390,12 +369,8 @@ public class CropWhitespace {
 		if (!limiteXBottomAtteinte && marginBottom >= 0) {
 			pourcentageBlancFromXBottom = (double) nbRowBlancFromXBottom * 100 / nbDetectionNoiseHeight;
 
-			System.out.println("nbRowBlancFromXBottom : " + nbRowBlancFromXBottom + " -> "
-					+ pourcentageBlancFromXBottom + "%");
-
 			if (pourcentageBlancFromXBottom > POURCENTAGE_AUTOUR_BLANC) {
 				marginBottom = marginBottom - nbDetectionNoiseHeight;
-				System.out.println("nouvelle margin bottom  : " + marginBottom + " xBottom : " + xBottom);
 				checkXBottom();
 
 			}
@@ -433,12 +408,8 @@ public class CropWhitespace {
 		if (!limiteYLeftAtteinte && marginLeft <= width) {
 			pourcentageBlancFromYLeft = (double) nbRowBlancFromYLeft * 100 / nbDetectionNoiseWidth;
 
-			System.out.println("nbRowBlancFromYLeft : " + nbRowBlancFromYLeft + " -> " + pourcentageBlancFromYLeft
-					+ "%");
-
 			if (pourcentageBlancFromYLeft > POURCENTAGE_AUTOUR_BLANC) {
 				marginLeft = marginLeft + nbDetectionNoiseWidth;
-				System.out.println("nouvelle margin left  : " + marginLeft + " yLeft : " + yLeft);
 				checkYLeft();
 			}
 		}
@@ -474,12 +445,8 @@ public class CropWhitespace {
 		if (!limiteYRightAtteinte && marginRight >= 0) {
 			pourcentageBlancFromYRight = (double) nbRowBlancFromYRight * 100 / nbDetectionNoiseWidth;
 
-			System.out.println("nbRowBlancFromYRight : " + nbRowBlancFromYRight + " -> " + pourcentageBlancFromYRight
-					+ "%");
-
 			if (pourcentageBlancFromYRight > POURCENTAGE_AUTOUR_BLANC) {
 				marginRight = marginRight - nbDetectionNoiseWidth;
-				System.out.println("nouvelle margin right  : " + marginRight + " yRight : " + yRight);
 				checkYRight();
 			}
 		}
@@ -493,8 +460,6 @@ public class CropWhitespace {
 	 *         found
 	 */
 	public BufferedImage cropImage() {
-		System.out.println(">>>> cropImage >>> xTop : " + xTop + " xBottom : " + xBottom + " yRight : " + yRight
-				+ " yLeft : " + yLeft);
 		if (xTop == Integer.MAX_VALUE || yLeft == Integer.MAX_VALUE) {
 			System.out.println("Unable to crop image... use orginial");
 			return image;
@@ -583,23 +548,6 @@ public class CropWhitespace {
 					String.format("Left and right margins can't be >= the width (%d) : %d + %d = %d", //
 							width, left, right, left + right));
 		}
-	}
-
-	/**
-	 * Double division, round the result, then cast to <code>int</code> eg. :
-	 * <p>
-	 * <code>(255 * 999 + 254) / 1000.0 = 254.999 --> 255</code>
-	 * <p>
-	 * More precise than <code>int</code> division ie.
-	 * <p>
-	 * <code>(255 * 999 + 254) / 1000 = 254</code>
-	 * 
-	 * @param dividend
-	 * @param divisor
-	 * @return
-	 */
-	public int div(double dividend, double divisor) {
-		return (int) Math.round(dividend / divisor);
 	}
 
 }

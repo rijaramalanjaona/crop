@@ -6,6 +6,12 @@ import java.awt.image.WritableRaster;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Classe utilisee pour separer horizontalement ou verticalement 2 pieces (recto
+ * et verso) dans une meme page; se base sur la detection de gap horizontal ou
+ * vertical.
+ * 
+ */
 public class Segmentation {
 	private static final int DEFAULT_GRAY_TOLERANCE = 250;
 	private static final int POURCENTAGE_DETECTION_GAP = 7;
@@ -94,7 +100,6 @@ public class Segmentation {
 		for (int i = 0; i < xGrayTotals.length; i++) {
 			if (xGrayTotals[i] >= grayToleranceWidth) {
 				listeBlancsX.add(i);
-				System.out.print("xblanc : " + i + " ");
 			}
 		}
 	}
@@ -103,7 +108,6 @@ public class Segmentation {
 		for (int i = 0; i < yGrayTotals.length; i++) {
 			if (yGrayTotals[i] >= grayToleranceHeight) {
 				listeBlancsY.add(i);
-				System.out.print("yblanc : " + i + " ");
 			}
 		}
 	}
@@ -111,8 +115,6 @@ public class Segmentation {
 	public void findHorizontalGap(int xBlanc) {
 		if (!listeBlancsX.isEmpty()) {
 			int nbDetectionGapHeight = height * POURCENTAGE_DETECTION_GAP / 100;
-			System.out.println(">>> dans findHorizontalGap(" + xBlanc + ") nbDetectionGapHeight : "
-					+ nbDetectionGapHeight);
 			int nbRowBlancFromXBlanc = 0;
 			double pourcentageBlancFromXBlanc;
 			boolean limiteXBlancAtteinte = false;
@@ -131,12 +133,8 @@ public class Segmentation {
 			if (!limiteXBlancAtteinte) {
 				pourcentageBlancFromXBlanc = (double) nbRowBlancFromXBlanc * 100 / nbDetectionGapHeight;
 
-				System.out.println("nbRowBlancFromXBlanc : " + nbRowBlancFromXBlanc + " -> "
-						+ pourcentageBlancFromXBlanc + "%");
-
 				if (pourcentageBlancFromXBlanc > POURCENTAGE_AUTOUR_BLANC) {
 					xGap = xBlanc + (nbDetectionGapHeight / 2);
-					System.out.println(">>> find xGap : " + xGap);
 
 				} else {
 					int minNewXBlanc = xBlanc + nbDetectionGapHeight;
@@ -148,7 +146,6 @@ public class Segmentation {
 						}
 					}
 					if (newXBlanc < xGrayTotals.length) {
-						System.out.println("newXBlanc : " + newXBlanc);
 						findHorizontalGap(newXBlanc);
 					}
 				}
@@ -160,7 +157,6 @@ public class Segmentation {
 	public void findVerticalGap(int yBlanc) {
 		if (!listeBlancsY.isEmpty()) {
 			int nbDetectionGapWidth = width * POURCENTAGE_DETECTION_GAP / 100;
-			System.out.println(">>> dans findVerticalGap(" + yBlanc + ") nbDetectionGapWidth : " + nbDetectionGapWidth);
 			int nbColBlancFromYBlanc = 0;
 			double pourcentageBlancFromYBlanc;
 			boolean limiteYBlancAtteinte = false;
@@ -179,12 +175,8 @@ public class Segmentation {
 			if (!limiteYBlancAtteinte) {
 				pourcentageBlancFromYBlanc = (double) nbColBlancFromYBlanc * 100 / nbDetectionGapWidth;
 
-				System.out.println("nbColBlancFromYBlanc : " + nbColBlancFromYBlanc + " -> "
-						+ pourcentageBlancFromYBlanc + "%");
-
 				if (pourcentageBlancFromYBlanc > POURCENTAGE_AUTOUR_BLANC) {
 					yGap = yBlanc + (nbDetectionGapWidth / 2);
-					System.out.println(">>> find yGap : " + yGap);
 
 				} else {
 					int minNewYBlanc = yBlanc + nbDetectionGapWidth;
@@ -196,7 +188,6 @@ public class Segmentation {
 						}
 					}
 					if (newYBlanc < yGrayTotals.length) {
-						System.out.println("newYBlanc : " + newYBlanc);
 						findVerticalGap(newYBlanc);
 					}
 				}
