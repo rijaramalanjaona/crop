@@ -22,8 +22,6 @@ import com.lowagie.text.pdf.PdfWriter;
  */
 public class AutoCropAndRotate {
 	private static final int MAX_WIDTH_PDF = 500;
-	// private static final double MAX_SCALED_DOWN_WIDTH = 500.0; // Scale
-	// commenté pour une meilleure qualité du pdf retourné
 
 	private static final String DIR_PDF_TEST = "C:\\projetCrop\\pdfTest\\";
 	private static final String DIR_PDF_RESULT = "C:\\projetCrop\\pdfResult\\";
@@ -135,26 +133,7 @@ public class AutoCropAndRotate {
 			double angle = dsk.doIt(image);
 			System.out.println("angle = " + angle);
 
-			// Scale down via Java to reduce file size
-			// commenté pour une meilleure qualité du pdf retourné
-			// int w = image.getWidth();
-			// int h = image.getHeight();
-			// int largestDimension = Math.max(w, h);
-			// double scale = MAX_SCALED_DOWN_WIDTH / largestDimension;
-			// BufferedImage scaled = new BufferedImage(w, h,
-			// BufferedImage.TYPE_INT_ARGB);
-			// AffineTransform at = new AffineTransform();
-			// at.scale(scale, scale);
-			// AffineTransformOp scaleOp = new AffineTransformOp(at,
-			// AffineTransformOp.TYPE_BILINEAR);
-			// image = scaleOp.filter(image, scaled);
-			// int rightEdge = image.getWidth() - (int) (image.getWidth() *
-			// scale);
-			// int bottomEdge = image.getHeight() - (int) (image.getHeight() *
-			// scale);
-			//
-			// image = cropper.cropPure(image, 0, rightEdge, bottomEdge, 0);
-
+			
 			// write out the image to PDF
 			FileOutputStream outputStream = new FileOutputStream(outputPdfFile);
 

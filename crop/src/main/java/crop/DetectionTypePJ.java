@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  */
 public class DetectionTypePJ {
 
-	private static final String DIR_OCR_OUT = "C:\\abbyy\\pj\\out\\";
+	private static final String DIR_OCR_OUT = "C:\\projetCrop\\outOCR\\";
 
 	private static final int NB_MIN_CARACTERES_MOT_INTERESSANT = 4;
 	private static final double SEUIL_RESSEMBLANCE = 0.7;
