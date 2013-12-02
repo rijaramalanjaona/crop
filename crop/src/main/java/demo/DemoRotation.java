@@ -14,6 +14,6 @@ public class DemoRotation {
 	    AutoCropAndRotate autoCropAndRotate = new AutoCropAndRotate(file);
 	    autoCropAndRotate.go();
 	}
-	System.out.println("fin");
+	System.out.println("fin...");
     }
 }
