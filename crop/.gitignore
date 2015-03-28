@@ -1,0 +1,10 @@
+# Package Files #
+*.jar
+*.war
+
+
+/target
+
+/bin
+
+/doc
